@@ -62,7 +62,7 @@ routes.push({
     const { fileUrlOrTitle } = request.params;
     try {
       const fileInfo = await fileData.getFileData(fileUrlOrTitle);
-      const getLicenseParams = { title: fileInfo.title, wikiUrl: fileInfo.wikiUrl };
+      const getLicenseParams = { title: fileInfo.normalizedTitle, wikiUrl: fileInfo.wikiUrl };
       const license = await licenses.getLicense(getLicenseParams);
       const response = serialize(fileInfo, license);
       tracker.track(request, 'File Info');
