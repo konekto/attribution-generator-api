@@ -1,5 +1,5 @@
 // Configure the server host.
-const host = 'localhost';
+const host = process.env.HOST || 'localhost';
 
 // Configure the TCP port to bind to.
 const port = parseInt(process.env.PORT, 10) || 8080;
